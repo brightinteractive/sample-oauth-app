@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>iframe</title>
+    <meta name="description" content="iframe content">
+
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <h1>Iframe</h1>
+    <p>content for the iframe</p>
+    <h2>Logged in user</h2>
+    <ul>
+      <li><label>Name: <span id="name"></span></label></li>
+      <li><label>Username: <span id="username"></span></label></li>
+    </ul>
+    <script>
+      var re = new RegExp("user" + "=([^;]+)")
+      var value = re.exec(document.cookie)
+      var user = JSON.parse((value != null) ? unescape(value[1]) : null)
+
+      var usernameSpan = document.getElementById('username')
+      usernameSpan.textContent = user.username
+      var nameSpan = document.getElementById('name')
+      nameSpan.textContent = user.name
+
+    </script>
+  </body>
+</html>

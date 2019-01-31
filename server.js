@@ -23,13 +23,19 @@ app.get("/hello", function(req, res) {
  * Login endpoint to demonstrate basic login
  */
 app.post("/login", function(req, res) {
+  console.log("Username : "+ req.body.username)
+  
+  var redirect = '/'
   for (var user of users) {
-    if (user.username == req.body.username) {
+    if (user.username == req.body.username && user.password == req.body.password) {
       res.cookie('user', JSON.stringify(user), {})
+      redirect = '/iframe'
+      break
     }
   }
-  console.log("Username : "+ req.body.username)
-  res.redirect('/')
+  
+  res.redirect(redirect)
+  
 })
 
 app.post("/logout", function(req, res) {

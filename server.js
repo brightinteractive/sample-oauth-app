@@ -25,16 +25,15 @@ app.get("/hello", function(req, res) {
 app.post("/login", function(req, res) {
   console.log("Username : "+ req.body.username)
   
-  var redirect = '/'
   for (var user of users) {
     if (user.username == req.body.username && user.password == req.body.password) {
       res.cookie('user', JSON.stringify(user), {})
-      redirect = '/iframe'
-      break
+      res.redirect('/iframe')
+      return
     }
   }
   
-  res.redirect(redirect)
+  res.redirect('/login.html')
   
 })
 

@@ -3,12 +3,12 @@ Sample OAuth App
 
 This is an example application that demonstrates how SSO can work with the current AB OAuth authorization code flow.
 
-The app is written in node.js and can be run locally by executing "node server.js" on the command line.
+The app is written in node.js and can be run locally by executing `npm start` on the command line.
 
 The app will run on port 3000: http://localhost:3000/
 
 You can log in to the app with email and password.
-The users are stored in the 'users.json' file.
+The users are stored in the `users.json` file.
 
 The users file has this format:
 ```
@@ -25,7 +25,7 @@ The users file has this format:
 Login with Asset Bank
 ---------------------
 
-Ensure the Asset Bank has an OAuth client set up, and put the client id/secret into the 'client-credentials.json' file.
+Ensure the Asset Bank has an OAuth client set up, and put the client id/secret into the `client-credentials.json` file.
 
 The url needed to start the flow would be something like:
 http://localhost:3000/iframe?loginWith=http://localhost:8080/asset-bank/
